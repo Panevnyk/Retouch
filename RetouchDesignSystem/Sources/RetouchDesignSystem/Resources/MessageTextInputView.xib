@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AMessageTextInputView" customModuleProvider="target">
+            <connections>
+                <outlet property="messageTextView" destination="6sf-8G-yhE" id="ARq-zv-esA"/>
+                <outlet property="textViewContainer" destination="cFS-f7-a3S" id="gJS-IR-XgF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-f7-a3S">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" text="Lorem ipsu" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6sf-8G-yhE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="uB1-Uv-RT5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="6sf-8G-yhE" firstAttribute="top" secondItem="cFS-f7-a3S" secondAttribute="top" id="1g1-if-tMB"/>
+                        <constraint firstItem="6sf-8G-yhE" firstAttribute="leading" secondItem="cFS-f7-a3S" secondAttribute="leading" id="FhB-eY-ztS"/>
+                        <constraint firstAttribute="trailing" secondItem="6sf-8G-yhE" secondAttribute="trailing" id="T4V-xD-Feb"/>
+                        <constraint firstAttribute="bottom" secondItem="6sf-8G-yhE" secondAttribute="bottom" id="nrK-Jg-Iu5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cFS-f7-a3S" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ALs-GZ-dKd"/>
+                <constraint firstAttribute="bottom" secondItem="cFS-f7-a3S" secondAttribute="bottom" id="BWR-xN-Dsh"/>
+                <constraint firstItem="cFS-f7-a3S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hJc-J8-KgM"/>
+                <constraint firstAttribute="trailing" secondItem="cFS-f7-a3S" secondAttribute="trailing" id="s9P-TR-ULQ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="136.80000000000001" y="145.72713643178412"/>
+        </view>
+    </objects>
+</document>

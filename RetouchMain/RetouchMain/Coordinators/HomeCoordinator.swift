@@ -7,9 +7,12 @@
 
 import UIKit
 import Photos
+import RetouchDomain
 import RetouchHome
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 
+@MainActor
 final class HomeCoordinator {
     // MARK: - Properties
     private let serviceFactory: ServiceFactoryProtocol
@@ -142,21 +145,21 @@ extension HomeCoordinator: PhotoGalleryViewCoordinatorDelegate {
 // MARK: - HomeHistoryCoordinatorDelegate
 extension HomeCoordinator: HomeHistoryCoordinatorDelegate {
     func didTapGallery() {
-        phPhotoLibraryPresenter = serviceFactory.makePHPhotoLibraryPresenter()
-        phPhotoLibraryPresenter?.requestPhotosAuthorization { [weak self] (isAuthorized) in
-            guard let self = self else { return }
-            if isAuthorized {
+        Task {
+            phPhotoLibraryPresenter = serviceFactory.makePHPhotoLibraryPresenter()
+            let isAuthorized = await phPhotoLibraryPresenter?.requestPhotosAuthorization()
+            if isAuthorized == true {
                 let homeGalleryAssembly = HomeGalleryAssembly(
                     serviceFactory: self.serviceFactory,
                     coordinatorDelegate: self,
                     isBackHidden: false
                 )
-
+                
                 self.navigationController.pushViewController(homeGalleryAssembly.viewController, animated: true)
             } else {
                 self.phPhotoLibraryPresenter?.presentNotAccessToPhotoLibraryAlert()
             }
-
+            
             self.phPhotoLibraryPresenter = nil
         }
     }

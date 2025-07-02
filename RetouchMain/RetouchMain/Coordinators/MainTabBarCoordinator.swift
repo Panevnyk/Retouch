@@ -6,15 +6,17 @@
 //
 
 import UIKit
-import RetouchCommon
-import RestApiManager
+import RetouchUtils
+import RetouchDesignSystem
 import CloudKit
 
+@MainActor
 protocol MainTabBarDelegate: AnyObject {
     func didSignout()
     func didSelectSignIn()
 }
 
+@MainActor
 final class MainTabBarCoordinator {
     // MARK: - Properties
     private let serviceFactory: ServiceFactoryProtocol

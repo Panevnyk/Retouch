@@ -8,6 +8,7 @@
 import UIKit
 import RetouchHome
 
+@MainActor
 final class ForceAppUpdateCoordinator {
     // MARK: - Properties
     private let serviceFactory: ServiceFactoryProtocol

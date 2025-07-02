@@ -7,8 +7,10 @@
 
 import UIKit
 import RetouchExamples
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 
+@MainActor
 final class ExamplesAssembly {
     let viewModel: ExamplesViewModelProtocol
     var viewController: ExamplesViewController
@@ -24,6 +26,7 @@ final class ExamplesAssembly {
     }
 }
 
+@MainActor
 final class ExampleDetailAssembly {
     var viewController: ExampleDetailViewController
     var viewModel: ExampleItemViewModelProtocol

@@ -7,14 +7,17 @@
 
 import UIKit
 import RetouchMore
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 import RetouchHome
 
+@MainActor
 protocol MoreDelegate: AnyObject {
     func didSignout()
     func didSelectSignIn()
 }
 
+@MainActor
 final class MoreCoordinator {
     // MARK: - Properties
     private let serviceFactory: ServiceFactoryProtocol

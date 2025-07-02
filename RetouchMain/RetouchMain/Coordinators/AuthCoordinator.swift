@@ -8,14 +8,20 @@
 import UIKit
 import RetouchAuth
 import RetouchMore
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
+import FactoryKit
 
+@MainActor
 protocol AuthCoordinatorDelegate: AnyObject {
     func didLoginSuccessfully()
 }
 
+@MainActor
 final class AuthCoordinator {
     // MARK: - Properties
+    @Injected(\.analytics) private var analytics
+    
     private let serviceFactory: ServiceFactoryProtocol
     private let navigationController: UINavigationController
 
@@ -31,7 +37,7 @@ final class AuthCoordinator {
 
     // MARK: - Starts
     func start(animated: Bool) {
-        if AStartingTutorialView.isShowen {
+        if StartingTutorialView.isShowen {
             startAuth(animated: animated)
         } else {
             startTutorialAuth(animated: animated)
@@ -124,7 +130,7 @@ private extension AuthCoordinator {
 }
 
 // MARK: - AStartingTutorialViewCoordinatorDelegate
-extension AuthCoordinator: AStartingTutorialViewCoordinatorDelegate {
+extension AuthCoordinator: StartingTutorialViewCoordinatorDelegate {
     public func didSelectUseApp() {
         didLoginSuccessfully()
     }
@@ -161,23 +167,23 @@ extension AuthCoordinator: BaseAuthCoordinatorDelegate {
     }
 }
 
-// MARK: - ALoginViewCoordinatorDelegate
-extension AuthCoordinator: ALoginViewCoordinatorDelegate {
+// MARK: - LoginViewCoordinatorDelegate
+extension AuthCoordinator: LoginViewCoordinatorDelegate {
     func didSelectForgotPassword() {
         let forgotPasswordViewController = makeForgotPasswordViewController()
         navigationController.pushViewController(forgotPasswordViewController, animated: true)
     }
 }
 
-// MARK: - ARegistrationViewCoordinatorDelegate
-extension AuthCoordinator: ARegistrationViewCoordinatorDelegate {
+// MARK: - RegistrationViewCoordinatorDelegate
+extension AuthCoordinator: RegistrationViewCoordinatorDelegate {
     func successRegistration() {
         didLoginSuccessfully()
     }
 }
 
-// MARK: - AForgotPasswordViewCoordinatorDelegate
-extension AuthCoordinator: AForgotPasswordViewCoordinatorDelegate {
+// MARK: - ForgotPasswordViewCoordinatorDelegate
+extension AuthCoordinator: ForgotPasswordViewCoordinatorDelegate {
     func didSelectLoginWith(email: String) {
         let loginViewController = makeLoginViewController(defaultEmail: email)
         navigationController.setViewControllers([loginViewController], animated: true)
@@ -188,19 +194,19 @@ extension AuthCoordinator: AForgotPasswordViewCoordinatorDelegate {
     }
 }
 
-// MARK: - AResetPasswordViewCoordinatorDelegate
-extension AuthCoordinator: AResetPasswordViewCoordinatorDelegate {}
+// MARK: - ResetPasswordViewCoordinatorDelegate
+extension AuthCoordinator: ResetPasswordViewCoordinatorDelegate {}
 
 // MARK: - UseAgreementsDelegate
 extension AuthCoordinator: UseAgreementsDelegate {
     func didSelectPrivacyPolicy() {
-        AnalyticsService.logAction(.privacyPolicyAuth)
+        analytics.logAction(.privacyPolicyAuth)
         let infoViewController = makePrivacyPolicyViewController()
         navigationController.pushViewController(infoViewController, animated: true)
     }
     
     func didSelectTermsOfUse() {
-        AnalyticsService.logAction(.termsOfUseAuth)
+        analytics.logAction(.termsOfUseAuth)
         let infoViewController = makeTermsOfUseViewController()
         navigationController.pushViewController(infoViewController, animated: true)
     }

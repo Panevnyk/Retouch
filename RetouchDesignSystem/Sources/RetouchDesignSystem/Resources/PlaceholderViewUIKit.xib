@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceholderViewUIKit" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="NXM-cM-Xjk" id="u78-LZ-oaG"/>
+                <outlet property="imageView" destination="YUI-U3-XeX" id="Kbc-vN-zjR"/>
+                <outlet property="subtitleLabel" destination="o8W-bi-8Jc" id="xSI-H4-4k5"/>
+                <outlet property="textContentView" destination="te6-1t-NqF" id="mYy-Vc-fp8"/>
+                <outlet property="titleLabel" destination="Rvs-kT-ynh" id="wVZ-hJ-G6K"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="626"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-U3-XeX">
+                    <rect key="frame" x="0.0" y="150.5" width="326" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YUI-U3-XeX" secondAttribute="height" multiplier="375:230" id="FtV-qA-Xz9"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="te6-1t-NqF">
+                    <rect key="frame" x="0.0" y="350.5" width="326" height="275.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No notification yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvs-kT-ynh">
+                            <rect key="frame" x="69" y="32" width="188" height="26.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive all messages for your accounts in one place." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-bi-8Jc">
+                            <rect key="frame" x="49" y="74.5" width="228" height="38.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXM-cM-Xjk" customClass="PurpleButton" customModuleProvider="target">
+                            <rect key="frame" x="280" y="145" width="30" height="32"/>
+                            <color key="backgroundColor" red="0.59223808929999999" green="0.68085944890000005" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="uuQ-TH-khb"/>
+                            </constraints>
+                            <connections>
+                                <action selector="actionOfActionButton:" destination="-1" eventType="touchUpInside" id="KI1-NU-UAf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="o8W-bi-8Jc" firstAttribute="top" secondItem="Rvs-kT-ynh" secondAttribute="bottom" constant="16" id="C7D-yh-Dxv"/>
+                        <constraint firstAttribute="trailing" secondItem="NXM-cM-Xjk" secondAttribute="trailing" constant="16" id="Cd9-Db-3aG"/>
+                        <constraint firstItem="Rvs-kT-ynh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="te6-1t-NqF" secondAttribute="leading" constant="30" id="GFJ-B8-9bc"/>
+                        <constraint firstItem="NXM-cM-Xjk" firstAttribute="top" secondItem="o8W-bi-8Jc" secondAttribute="bottom" constant="32" id="Ojg-Ky-kmf"/>
+                        <constraint firstItem="o8W-bi-8Jc" firstAttribute="centerX" secondItem="te6-1t-NqF" secondAttribute="centerX" id="i8F-4p-S5f"/>
+                        <constraint firstItem="Rvs-kT-ynh" firstAttribute="centerX" secondItem="te6-1t-NqF" secondAttribute="centerX" id="j1G-XG-8wf"/>
+                        <constraint firstItem="o8W-bi-8Jc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="te6-1t-NqF" secondAttribute="leading" constant="48" id="pCR-C9-7oj"/>
+                        <constraint firstItem="Rvs-kT-ynh" firstAttribute="top" secondItem="te6-1t-NqF" secondAttribute="top" constant="32" id="ypo-jG-UNy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Gkc-LG-fEa"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="YUI-U3-XeX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9Xv-6v-Tp6"/>
+                <constraint firstAttribute="bottom" secondItem="te6-1t-NqF" secondAttribute="bottom" id="AaH-Bh-ceA"/>
+                <constraint firstItem="te6-1t-NqF" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="BGZ-Uj-gb1"/>
+                <constraint firstItem="YUI-U3-XeX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.8" id="LPC-hG-MIL"/>
+                <constraint firstItem="te6-1t-NqF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vhf-WD-47T"/>
+                <constraint firstItem="te6-1t-NqF" firstAttribute="top" secondItem="YUI-U3-XeX" secondAttribute="bottom" id="avF-5S-cdH"/>
+                <constraint firstItem="YUI-U3-XeX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="okJ-sj-4eT"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="8" y="44.07796101949026"/>
+        </view>
+    </objects>
+</document>

@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

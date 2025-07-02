@@ -7,10 +7,13 @@
 
 import UIKit
 import Photos
+import RetouchDomain
 import RetouchHome
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 import SwiftUI
 
+@MainActor
 final class HomeAssembly {
     var viewController: HomeViewHosting
 
@@ -39,6 +42,7 @@ final class HomeAssembly {
     }
 }
 
+@MainActor
 final class HomeHistoryAssembly {
     var viewController: HomeHistoryViewHosting
     var view: HomeHistoryView
@@ -62,6 +66,7 @@ final class HomeHistoryAssembly {
     }
 }
 
+@MainActor
 final class HomeGalleryAssembly {
     var viewController: HomeGalleryViewHosting
     var view: HomeGalleryView
@@ -91,6 +96,7 @@ final class HomeGalleryAssembly {
     }
 }
 
+@MainActor
 final class PhotoGalleryAssembly {
     var viewController: PhotoGalleryViewHosting
     var viewModel: PhotoGalleryViewModel
@@ -132,6 +138,7 @@ final class PhotoGalleryAssembly {
     }
 }
 
+@MainActor
 final class OrderDetailAssembly {
     var viewController: OrderDetailViewController
     var viewModel: OrderDetailViewModelProtocol
@@ -155,6 +162,7 @@ final class OrderDetailAssembly {
     }
 }
 
+@MainActor
 final class RetouchingPhotoAssembly {
     var viewController: RetouchingPhotoViewController
     var viewModel: RetouchingPhotoViewModelProtocol
@@ -171,6 +179,7 @@ final class RetouchingPhotoAssembly {
     }
 }
 
+@MainActor
 final class BalanceAssembly {
     var viewController: BalanceViewController
     var viewModel: BalanceViewModelProtocol
@@ -191,6 +200,7 @@ final class BalanceAssembly {
     }
 }
 
+@MainActor
 final class CancelMessageAssembly {
     var viewController: MessageViewController
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "48E93190-58D8-4EE2-9F68-08FBA41D64CA"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8F0DBD7-0276-4E48-8E6F-00D08258651C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RetouchDesignSystem/Sources/RetouchDesignSystem/Services/Loaders/OrdersLoader/OrdersLoader.swift"
+            startingColumnNumber = "43"
+            endingColumnNumber = "78"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "didChangeStatus(by:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

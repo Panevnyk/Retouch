@@ -1,6 +1,0 @@
-framework module Pods_RetouchMain_RetouchCommon {
-  umbrella header "Pods-RetouchMain-RetouchCommon-umbrella.h"
-
-  export *
-  module * { export * }
-}

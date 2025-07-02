@@ -7,9 +7,11 @@
 
 import UIKit
 import RetouchExamples
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 import RetouchHome
 
+@MainActor
 final class ExamplesCoordinator {
     // MARK: - Properties
     private let serviceFactory: ServiceFactoryProtocol

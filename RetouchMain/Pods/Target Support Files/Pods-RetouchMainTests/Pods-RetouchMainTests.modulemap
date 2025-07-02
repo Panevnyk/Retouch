@@ -1,6 +1,0 @@
-framework module Pods_RetouchMainTests {
-  umbrella header "Pods-RetouchMainTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

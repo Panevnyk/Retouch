@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import RetouchCommon
-import RestApiManager
+import RetouchUtils
+import RetouchDesignSystem
+import RetouchNetworking
 
+@MainActor
 public protocol ServiceFactoryProtocol {
     func makeJSONDecoder() -> JSONDecoder
     func makeRestApiManager() -> RestApiManager
-    func makePushNotificationService() -> PushNotificationServiceProtocol
+//    func makePushNotificationService() -> PushNotificationServiceProtocol
     func makeDataLoader() -> DataLoaderProtocol
     func makeOrdersLoader() -> OrdersLoaderProtocol
     func makeSilentOrdersLoader() -> SilentOrdersLoaderProtocol
@@ -23,7 +25,7 @@ public protocol ServiceFactoryProtocol {
     func makePHPhotoLibraryPresenter() -> PHPhotoLibraryPresenterProtocol
     func makeReachabilityService() -> ReachabilityServiceProtocol
     func makeDeepLinkHelper() -> DeepLinkHelperProtocol
-    func makeRemoteConfigService() -> RemoteConfigServiceProtocol
+//    func makeRemoteConfigService() -> RemoteConfigServiceProtocol
     func makeIAPService() -> IAPServiceProtocol
     func makeStoreKitService() -> StoreKitServiceProtocol
     func makeReviewByURLService() -> ReviewByURLServiceProtocol
@@ -34,17 +36,18 @@ public protocol ServiceFactoryProtocol {
     func makeEarnCreditsService() -> EarnCreditsServiceProtocol
 }
 
+@MainActor
 public class ServiceFactory: NSObject, ServiceFactoryProtocol {
     var jsonDecoder: JSONDecoder!
     var restApiManager: RestApiManager!
-    var pushNotificationService: PushNotificationServiceProtocol!
+//    var pushNotificationService: PushNotificationServiceProtocol!
     var dataLoader: DataLoaderProtocol!
     var ordersLoader: OrdersLoaderProtocol!
     var silentOrdersLoader: SilentOrdersLoaderProtocol!
     var retouchGroupsLoader: RetouchGroupsLoaderProtocol!
     var currentUserLoader: CurrentUserLoaderProtocol!
     var reachabilityService: ReachabilityServiceProtocol!
-    var remoteConfigService: RemoteConfigServiceProtocol!
+//    var remoteConfigService: RemoteConfigServiceProtocol!
     var iapService: IAPServiceProtocol!
 
     static var shared: ServiceFactoryProtocol = ServiceFactory()
@@ -64,7 +67,6 @@ public class ServiceFactory: NSObject, ServiceFactoryProtocol {
         jsonDecoder = JSONDecoder()
         restApiManager = URLSessionRestApiManager(
             urlSessionRAMDIContainer: URLSessionRAMDIContainer(
-                errorType: CustomRestApiError.self,
                 urlSession: urlSession,
                 jsonDecoder: JSONDecoder(),
                 printRequestInfo: true,
@@ -81,16 +83,16 @@ public class ServiceFactory: NSObject, ServiceFactoryProtocol {
         return restApiManager
     }
 
-    public func makePushNotificationService() -> PushNotificationServiceProtocol {
-        if pushNotificationService == nil {
-            pushNotificationService = PushNotificationService(jsonDecoder: makeJSONDecoder(),
-                                                              restApiManager: makeRestApiManager(),
-                                                              ordersLoader: makeOrdersLoader(),
-                                                              dataLoader: makeDataLoader())
-        }
-
-        return pushNotificationService
-    }
+//    public func makePushNotificationService() -> PushNotificationServiceProtocol {
+//        if pushNotificationService == nil {
+//            pushNotificationService = PushNotificationService(jsonDecoder: makeJSONDecoder(),
+//                                                              restApiManager: makeRestApiManager(),
+//                                                              ordersLoader: makeOrdersLoader(),
+//                                                              dataLoader: makeDataLoader())
+//        }
+//
+//        return pushNotificationService
+//    }
 
     public func makeDataLoader() -> DataLoaderProtocol {
         if dataLoader == nil {
@@ -162,13 +164,13 @@ public class ServiceFactory: NSObject, ServiceFactoryProtocol {
         return DeepLinkHelper()
     }
 
-    public func makeRemoteConfigService() -> RemoteConfigServiceProtocol {
-        if remoteConfigService == nil {
-            remoteConfigService = RemoteConfigService()
-        }
-
-        return remoteConfigService
-    }
+//    public func makeRemoteConfigService() -> RemoteConfigServiceProtocol {
+//        if remoteConfigService == nil {
+//            remoteConfigService = RemoteConfigService()
+//        }
+//
+//        return remoteConfigService
+//    }
 
     public func makeIAPService() -> IAPServiceProtocol {
         if iapService == nil {
@@ -185,14 +187,14 @@ public class ServiceFactory: NSObject, ServiceFactoryProtocol {
         return ReviewByURLService()
     }
     
-    public func makeLocalFeedbackService() -> LocalFeedbackServiceProtocol {
-        return LocalFeedbackService(ordersLoader: makeOrdersLoader())
-    }
+//    public func makeLocalFeedbackService() -> LocalFeedbackServiceProtocol {
+//        return LocalFeedbackService(ordersLoader: makeOrdersLoader())
+//    }
     
     public func makeFeedbackService() -> FeedbackServiceProtocol {
-        return FeedbackService(storeKitService: makeStoreKitService(),
+        return FeedbackService(storeKitService: makeStoreKitService()/*,
                                localFeedbackService: makeLocalFeedbackService(),
-                               remoteConfigService: makeRemoteConfigService())
+                               remoteConfigService: makeRemoteConfigService()*/)
     }
     
     public func makeSavePhotoInfoService() -> SavePhotoInfoServiceProtocol {
@@ -217,7 +219,7 @@ public class ServiceFactory: NSObject, ServiceFactoryProtocol {
 
 // MARK: - URLSessionDelegate
 extension ServiceFactory: URLSessionDelegate {
-    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    nonisolated public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 
         if challenge.protectionSpace.host == "localhost" {
             #if DEBUG

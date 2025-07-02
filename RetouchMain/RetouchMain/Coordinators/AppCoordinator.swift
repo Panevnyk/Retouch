@@ -7,10 +7,13 @@
 
 import UIKit
 import SwiftUI
+import RetouchDomain
 import RetouchAuth
 import RetouchMore
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 
+@MainActor
 final class AppCoordinator {
     // MARK: - Properties
     private let window: UIWindow
@@ -44,7 +47,7 @@ final class AppCoordinator {
     }
 
     func start() {
-        if AStartingTutorialView.isShowen {
+        if StartingTutorialView.isShowen {
             startMainTabBarCoordinator(animated: false)
         } else {
             startTutorialAuthCoordinator(animated: false)
@@ -138,9 +141,11 @@ final class AppCoordinator {
         case .autoLogin, .noLogin:
             AlertHelper.show(title: "Refreshing data", message: nil) { [weak self] _ in
                 guard let self = self else { return }
-                ActivityIndicatorHelper.shared.show()
-                self.serviceFactory.makeDataLoader().loadData { [weak self] in
-                    guard let self = self else { return }
+                Task {
+                    ActivityIndicatorHelper.shared.show()
+                    do {
+                        try await self.serviceFactory.makeDataLoader().loadData()
+                    } catch {}
                     ActivityIndicatorHelper.shared.hide()
                     self.didLoginSuccessfully()
                 }

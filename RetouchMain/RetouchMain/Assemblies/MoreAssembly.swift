@@ -7,8 +7,10 @@
 
 import UIKit
 import RetouchMore
-import RetouchCommon
+import RetouchUtils
+import RetouchDesignSystem
 
+@MainActor
 final class MoreAssembly {
     let viewModel: MoreViewModelProtocol
     var viewController: MoreViewController
@@ -25,6 +27,7 @@ final class MoreAssembly {
     }
 }
 
+@MainActor
 final class InfoAssembly {
     let viewModel: InfoViewModelProtocol
     var viewController: InfoViewController

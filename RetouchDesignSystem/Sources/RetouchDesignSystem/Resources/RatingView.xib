@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingView" customModuleProvider="target">
+            <connections>
+                <outletCollection property="starButtons" destination="guI-2y-1Yb" collectionClass="NSMutableArray" id="SMX-KE-xNH"/>
+                <outletCollection property="starButtons" destination="P1W-xA-5Vd" collectionClass="NSMutableArray" id="jqh-om-jHm"/>
+                <outletCollection property="starButtons" destination="vrG-2B-srV" collectionClass="NSMutableArray" id="xgt-Of-shG"/>
+                <outletCollection property="starButtons" destination="7qR-48-Ngq" collectionClass="NSMutableArray" id="RpD-YW-p3U"/>
+                <outletCollection property="starButtons" destination="j58-iQ-vpa" collectionClass="NSMutableArray" id="5AE-dO-9om"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="32"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wGj-HU-bFV">
+                    <rect key="frame" x="0.0" y="0.0" width="192" height="32"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guI-2y-1Yb" customClass="StarButton" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="0.80112205396046576" green="0.80198538810251674" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="JNZ-Dy-DWJ"/>
+                                <constraint firstAttribute="width" constant="32" id="yHN-it-Cxl"/>
+                            </constraints>
+                            <connections>
+                                <action selector="starAction:" destination="-1" eventType="touchUpInside" id="EYn-Cp-d9p"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-xA-5Vd" customClass="StarButton" customModuleProvider="target">
+                            <rect key="frame" x="40" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="0.80112205400000003" green="0.80198538809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="M3I-W6-uzi"/>
+                                <constraint firstAttribute="height" constant="32" id="VST-UN-aMm"/>
+                            </constraints>
+                            <connections>
+                                <action selector="starAction:" destination="-1" eventType="touchUpInside" id="nsF-rB-mog"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrG-2B-srV" customClass="StarButton" customModuleProvider="target">
+                            <rect key="frame" x="80" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="0.80112205400000003" green="0.80198538809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="3pd-nD-eOO"/>
+                                <constraint firstAttribute="height" constant="32" id="AaV-IE-fa1"/>
+                            </constraints>
+                            <connections>
+                                <action selector="starAction:" destination="-1" eventType="touchUpInside" id="ePP-xq-6Qm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qR-48-Ngq" customClass="StarButton" customModuleProvider="target">
+                            <rect key="frame" x="120" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="0.80112205400000003" green="0.80198538809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="1F1-Te-mKN"/>
+                                <constraint firstAttribute="width" constant="32" id="z9e-34-H4x"/>
+                            </constraints>
+                            <connections>
+                                <action selector="starAction:" destination="-1" eventType="touchUpInside" id="1Ft-ml-wW3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j58-iQ-vpa" customClass="StarButton" customModuleProvider="target">
+                            <rect key="frame" x="160" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="0.80112205400000003" green="0.80198538809999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="64l-Y3-vKV"/>
+                                <constraint firstAttribute="height" constant="32" id="wbO-6H-vNJ"/>
+                            </constraints>
+                            <connections>
+                                <action selector="starAction:" destination="-1" eventType="touchUpInside" id="RUT-tS-t3e"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="192" id="Rhh-gC-B1Q"/>
+                        <constraint firstAttribute="height" constant="32" id="ilF-AZ-g0J"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wGj-HU-bFV" secondAttribute="trailing" id="1dC-TY-nxj"/>
+                <constraint firstAttribute="bottom" secondItem="wGj-HU-bFV" secondAttribute="bottom" id="EIz-sk-EjW"/>
+                <constraint firstItem="wGj-HU-bFV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Hew-16-0yJ"/>
+                <constraint firstItem="wGj-HU-bFV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yzp-7u-Cln"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="209.42028985507247" y="-169.41964285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
