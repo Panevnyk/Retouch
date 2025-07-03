@@ -90,21 +90,21 @@
 		91F47CA025D2EFCA003DF40A /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		D196024527F0934100DBA675 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1A0856E2814410F0086B60A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F42770592DEEFBC6008BDBCA /* RetouchDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchDomain; path = ../RetouchDomain; sourceTree = SOURCE_ROOT; };
-		F427705A2DEEFBD1008BDBCA /* RetouchUtils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchUtils; path = ../RetouchUtils; sourceTree = SOURCE_ROOT; };
-		F42770622DEEFD4D008BDBCA /* RetouchDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchDesignSystem; path = ../RetouchDesignSystem; sourceTree = SOURCE_ROOT; };
-		F42770662DEEFF16008BDBCA /* RetouchMore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchMore; path = ../RetouchMore; sourceTree = SOURCE_ROOT; };
-		F42770682DEEFFA1008BDBCA /* RetouchExamples */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchExamples; path = ../RetouchExamples; sourceTree = SOURCE_ROOT; };
+		F42770592DEEFBC6008BDBCA /* RetouchDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchDomain; path = ../Core/RetouchDomain; sourceTree = SOURCE_ROOT; };
+		F427705A2DEEFBD1008BDBCA /* RetouchUtils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchUtils; path = ../Shared/RetouchUtils; sourceTree = SOURCE_ROOT; };
+		F42770622DEEFD4D008BDBCA /* RetouchDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchDesignSystem; path = ../Shared/RetouchDesignSystem; sourceTree = SOURCE_ROOT; };
+		F42770662DEEFF16008BDBCA /* RetouchMore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchMore; path = ../Features/RetouchMore; sourceTree = SOURCE_ROOT; };
+		F42770682DEEFFA1008BDBCA /* RetouchExamples */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchExamples; path = ../Features/RetouchExamples; sourceTree = SOURCE_ROOT; };
 		F43B74362A6AAFE300E05184 /* AuthAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
 		F43B74382A6AAFF000E05184 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		F43B743B2A6AB02800E05184 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		F45A1AFB2DF05E1D0061EEC0 /* RetouchAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchAnalytics; sourceTree = "<group>"; };
-		F46FE7B52DEF017000C0C9DA /* RetouchHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchHome; path = ../RetouchHome; sourceTree = SOURCE_ROOT; };
+		F46FE7B52DEF017000C0C9DA /* RetouchHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchHome; path = ../Features/RetouchHome; sourceTree = SOURCE_ROOT; };
 		F4A942C02DF055ED00E6F516 /* RetouchImageLoader */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchImageLoader; sourceTree = "<group>"; };
 		F4A942C12DF055ED00E6F516 /* RetouchNotificationBanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNotificationBanner; sourceTree = "<group>"; };
 		F4B7821D2DF07B2C00D4E5CD /* ContainerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerConfiguration.swift; sourceTree = "<group>"; };
-		F4B7829A2DF0914100D4E5CD /* RetouchNetworking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchNetworking; path = ../RetouchNetworking; sourceTree = "<group>"; };
-		F4C18E302DEF03E60053841C /* RetouchAuth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchAuth; path = ../RetouchAuth; sourceTree = SOURCE_ROOT; };
+		F4B7829A2DF0914100D4E5CD /* RetouchNetworking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNetworking; sourceTree = "<group>"; };
+		F4C18E302DEF03E60053841C /* RetouchAuth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchAuth; path = ../Features/RetouchAuth; sourceTree = SOURCE_ROOT; };
 		F4D652F02E0C196C001E54C9 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -164,15 +164,10 @@
 		91C00C6D25D2C72800FF97A2 = {
 			isa = PBXGroup;
 			children = (
-				F4A942C22DF055ED00E6F516 /* ExternalDependencies */,
-				F42770592DEEFBC6008BDBCA /* RetouchDomain */,
-				F4B7829A2DF0914100D4E5CD /* RetouchNetworking */,
-				F427705A2DEEFBD1008BDBCA /* RetouchUtils */,
-				F42770622DEEFD4D008BDBCA /* RetouchDesignSystem */,
-				F4C18E302DEF03E60053841C /* RetouchAuth */,
-				F46FE7B52DEF017000C0C9DA /* RetouchHome */,
-				F42770662DEEFF16008BDBCA /* RetouchMore */,
-				F42770682DEEFFA1008BDBCA /* RetouchExamples */,
+				F43AACA22E169ACA00CADDE9 /* Core */,
+				F43AACA32E169AD200CADDE9 /* Shared */,
+				F43AACA42E169AF600CADDE9 /* Features */,
+				F4A942C22DF055ED00E6F516 /* 3-rd party adapters */,
 				91C00C7825D2C72800FF97A2 /* RetouchMain */,
 				91C00C9A25D2C72A00FF97A2 /* RetouchMainUITests */,
 				91C00C7725D2C72800FF97A2 /* Products */,
@@ -252,6 +247,38 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		F43AACA22E169ACA00CADDE9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F42770592DEEFBC6008BDBCA /* RetouchDomain */,
+			);
+			name = Core;
+			path = ../Core;
+			sourceTree = "<group>";
+		};
+		F43AACA32E169AD200CADDE9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F4B7829A2DF0914100D4E5CD /* RetouchNetworking */,
+				F427705A2DEEFBD1008BDBCA /* RetouchUtils */,
+				F42770622DEEFD4D008BDBCA /* RetouchDesignSystem */,
+			);
+			name = Shared;
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
+		F43AACA42E169AF600CADDE9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F4C18E302DEF03E60053841C /* RetouchAuth */,
+				F46FE7B52DEF017000C0C9DA /* RetouchHome */,
+				F42770662DEEFF16008BDBCA /* RetouchMore */,
+				F42770682DEEFFA1008BDBCA /* RetouchExamples */,
+			);
+			name = Features;
+			path = ../Features;
+			sourceTree = "<group>";
+		};
 		F43B743A2A6AB00800E05184 /* ServiceFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,15 +287,15 @@
 			path = ServiceFactory;
 			sourceTree = "<group>";
 		};
-		F4A942C22DF055ED00E6F516 /* ExternalDependencies */ = {
+		F4A942C22DF055ED00E6F516 /* 3-rd party adapters */ = {
 			isa = PBXGroup;
 			children = (
 				F45A1AFB2DF05E1D0061EEC0 /* RetouchAnalytics */,
 				F4A942C02DF055ED00E6F516 /* RetouchImageLoader */,
 				F4A942C12DF055ED00E6F516 /* RetouchNotificationBanner */,
 			);
-			name = ExternalDependencies;
-			path = ../ExternalDependencies;
+			name = "3-rd party adapters";
+			path = "../3-rd party adapters";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */

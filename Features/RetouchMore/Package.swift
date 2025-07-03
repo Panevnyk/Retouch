@@ -4,13 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "RetouchHome",
+    name: "RetouchMore",
     platforms: [.iOS(.v17)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "RetouchHome",
-            targets: ["RetouchHome"]),
+            name: "RetouchMore",
+            targets: ["RetouchMore"]),
     ],
     dependencies: [
         .package(path: "../RetouchUtils"),
@@ -19,10 +18,8 @@ let package = Package(
         .package(url: "https://github.com/hmlongco/Factory", from: "2.5.3")
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "RetouchHome",
+            name: "RetouchMore",
             dependencies: [
                 "RetouchUtils",
                 "RetouchDesignSystem",
@@ -34,8 +31,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "RetouchHomeTests",
-            dependencies: ["RetouchHome"]
+            name: "RetouchMoreTests",
+            dependencies: ["RetouchMore"]
         ),
     ]
 )
