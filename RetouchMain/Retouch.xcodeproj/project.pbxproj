@@ -380,7 +380,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 91C00C7125D2C72800FF97A2 /* Build configuration list for PBXProject "RetouchMain" */;
+			buildConfigurationList = 91C00C7125D2C72800FF97A2 /* Build configuration list for PBXProject "Retouch" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -770,7 +770,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		91C00C7125D2C72800FF97A2 /* Build configuration list for PBXProject "RetouchMain" */ = {
+		91C00C7125D2C72800FF97A2 /* Build configuration list for PBXProject "Retouch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91C00C9E25D2C72A00FF97A2 /* Debug */,

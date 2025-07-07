@@ -17,7 +17,7 @@
                BlueprintIdentifier = "91C00C7525D2C72800FF97A2"
                BuildableName = "RetouchMain.app"
                BlueprintName = "RetouchMain"
-               ReferencedContainer = "container:RetouchMain.xcodeproj">
+               ReferencedContainer = "container:Retouch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "91C00C8B25D2C72A00FF97A2"
                BuildableName = "RetouchMainTests.xctest"
                BlueprintName = "RetouchMainTests"
-               ReferencedContainer = "container:RetouchMain.xcodeproj">
+               ReferencedContainer = "container:Retouch.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "91C00C9625D2C72A00FF97A2"
                BuildableName = "RetouchMainUITests.xctest"
                BlueprintName = "RetouchMainUITests"
-               ReferencedContainer = "container:RetouchMain.xcodeproj">
+               ReferencedContainer = "container:Retouch.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "91C00C7525D2C72800FF97A2"
             BuildableName = "RetouchMain.app"
             BlueprintName = "RetouchMain"
-            ReferencedContainer = "container:RetouchMain.xcodeproj">
+            ReferencedContainer = "container:Retouch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -90,7 +90,7 @@
             BlueprintIdentifier = "91C00C7525D2C72800FF97A2"
             BuildableName = "RetouchMain.app"
             BlueprintName = "RetouchMain"
-            ReferencedContainer = "container:RetouchMain.xcodeproj">
+            ReferencedContainer = "container:Retouch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
