@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RetouchDomain
+import RetouchUtils
 
 public protocol SavePhotoInfoServiceProtocol {
     var isClosed: Bool { get set }

@@ -1,10 +1,3 @@
-//
-//  PushNotificationModel.swift
-//  RetouchDesignSystem
-//
-//  Created by Panevnyk Vlad on 07.05.2021.
-//
-
 public enum PushNotificationType: String, Decodable, Sendable {
     case none = ""
     case orderCompleted = "order_completed"
@@ -13,4 +6,12 @@ public enum PushNotificationType: String, Decodable, Sendable {
 
 public protocol PushNotificationModel {
     var code: PushNotificationType { get }
+}
+
+public struct OrderStatusChangedNotificationModel: PushNotificationModel, Sendable {
+    public let code: PushNotificationType
+    public let orderId: String
+    public let orderStatus: OrderStatus
+    public let userGemCount: Int?
+    public let orderStatusDescription: String?
 }
