@@ -1,5 +1,6 @@
 import Combine
 import RetouchDomain
+import RetouchUtils
 import RetouchDesignSystem
 import RetouchNetworking
 import FactoryKit
@@ -16,6 +17,7 @@ public class ResetPasswordViewModel: ObservableObject {
     // Boundaries
     @Injected(\.analytics) var analytics
     @Injected(\.notificationBanner) var notificationBanner
+    @Injected(\.userDataService) var userDataService
     
     private let resetPasswordToken: String
     private let restApiManager: RestApiManager
@@ -61,7 +63,7 @@ extension ResetPasswordViewModel {
         do {
             let userData: UserData = try await restApiManager.call(method: method)
             ActivityIndicatorHelper.shared.hide()
-            UserData.save(userData: userData)
+            userDataService.save(userData: userData)
             didLoginSuccessfully()
         } catch {
             notificationBanner.showBanner(error)

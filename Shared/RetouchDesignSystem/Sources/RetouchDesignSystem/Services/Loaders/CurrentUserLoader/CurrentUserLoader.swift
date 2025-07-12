@@ -1,20 +1,17 @@
-//
-//  CurrentUserLoader.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 23.04.2021.
-//
-
 import RetouchNetworking
 import RetouchDomain
+import RetouchUtils
+import FactoryKit
 
 public protocol CurrentUserLoaderProtocol: Sendable {
     func autoSigninUser() async throws -> User
     func loadUser() async throws -> User
 }
 
-public final class CurrentUserLoader: CurrentUserLoaderProtocol {
+public final class CurrentUserLoader: CurrentUserLoaderProtocol, @unchecked Sendable {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     // Boundaries
     private let restApiManager: RestApiManager
 
@@ -25,7 +22,7 @@ public final class CurrentUserLoader: CurrentUserLoaderProtocol {
 
     // MARK: - Load
     public func autoSigninUser() async throws -> User {
-        let loginStatus = await MainActor.run { UserData.shared.loginStatus }
+        let loginStatus = await MainActor.run { userDataService.loginStatus }
         switch loginStatus {
         case .noLogin, .autoLogin:
             return try await autoSigninUserWithDeviceId()
@@ -39,7 +36,7 @@ public final class CurrentUserLoader: CurrentUserLoaderProtocol {
         let method = AuthRestApiMethods.signinWithDeviceId(parameters)
         let userData: UserData = try await restApiManager.call(method: method)
         await MainActor.run {
-            UserData.save(userData: userData)
+            userDataService.save(userData: userData)
         }
         return userData.user
     }
@@ -48,7 +45,7 @@ public final class CurrentUserLoader: CurrentUserLoaderProtocol {
         let method = AuthRestApiMethods.currentUser
         let user: User = try await restApiManager.call(method: method)
         await MainActor.run {
-            UserData.save(user: user)
+            userDataService.save(user: user)
         }
         return user
     }

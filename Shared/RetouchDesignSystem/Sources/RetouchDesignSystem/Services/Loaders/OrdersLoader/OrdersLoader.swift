@@ -1,14 +1,9 @@
-//
-//  OrdersLoader.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 14.02.2021.
-//
-
 import UIKit
 @preconcurrency import Combine
 import RetouchDomain
 import RetouchNetworking
+import RetouchUtils
+import FactoryKit
 
 public struct CreateOrderModel: Sendable {
     public let beforeImage: UIImage
@@ -42,6 +37,8 @@ public protocol OrdersLoaderProtocol: Sendable {
 
 public actor OrdersLoader: OrdersLoaderProtocol {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+
     // Boundaries
     private let restApiManager: RestApiManager
 
@@ -121,8 +118,9 @@ public actor OrdersLoader: OrdersLoaderProtocol {
                 let newOrder: Order = try await restApiManager.call(method: method)
                 await MainActor.run {
                     self.isLoadingPublisher.send(false)
-                    
-                    UserData.shared.user.gemCount = UserData.shared.user.gemCount - newOrder.price
+                }
+                userDataService.update(gemCount: userDataService.user.gemCount - newOrder.price)
+                await MainActor.run {
                     var orders = self.ordersPublisher.value
                     orders.insert(newOrder, at: 0)
                     self.ordersPublisher.send(orders)
@@ -221,10 +219,9 @@ public actor OrdersLoader: OrdersLoaderProtocol {
                 orders[index].statusDescription = model.orderStatusDescription
                 self.ordersPublisher.send(orders)
             }
-            
-            if let userGemCount = model.userGemCount {
-                UserData.shared.user.gemCount = userGemCount
-            }
+        }
+        if let userGemCount = model.userGemCount {
+            userDataService.update(gemCount: userGemCount)
         }
     }
 

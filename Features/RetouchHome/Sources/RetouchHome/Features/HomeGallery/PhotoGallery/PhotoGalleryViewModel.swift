@@ -23,6 +23,7 @@ public class PhotoGalleryViewModel: ObservableObject {
     // MARK: - Properties
     @Injected(\.analytics) var analytics
     @Injected(\.notificationBanner) var notificationBanner
+    @Injected(\.userDataService) private var userDataService
     
     // Boundaries
     let ordersLoader: OrdersLoaderProtocol
@@ -30,7 +31,6 @@ public class PhotoGalleryViewModel: ObservableObject {
     var retouchGroups: [PresentableRetouchGroup] = []
     let iapService: IAPServiceProtocol
     let freeGemCreditCountService: FreeGemCreditCountServiceProtocol
-    let user: User
     
     var productsResponse: [IAPProductResponse] = []
     
@@ -39,7 +39,7 @@ public class PhotoGalleryViewModel: ObservableObject {
     }
     
     public var isEnoughGemsForOrder: Bool {
-        UserData.shared.user.gemCount >= getOrderAmount()
+        userDataService.user.gemCount >= getOrderAmount()
     }
     
     public private(set) var ordersCount = 0
@@ -81,7 +81,6 @@ public class PhotoGalleryViewModel: ObservableObject {
         self.iapService = iapService
         self.freeGemCreditCountService = freeGemCreditCountService
         self.image = image
-        self.user = UserData.shared.user
         
         bindData()
     }
@@ -173,7 +172,7 @@ extension PhotoGalleryViewModel {
     }
     
     public func getUserFreeGemCreditCount() -> String {
-        guard let freeGemCreditCount = user.freeGemCreditCount else { return "" }
+        guard let freeGemCreditCount = userDataService.user.freeGemCreditCount else { return "" }
         return String(freeGemCreditCount)
     }
     
@@ -183,14 +182,14 @@ extension PhotoGalleryViewModel {
     }
     
     public func isFirstOrderForFreeAvailabel() -> Bool {
-        return (user.freeGemCreditCount ?? 0) > 0
-        && (user.freeGemCreditCount ?? 0) == user.gemCount
+        return (userDataService.user.freeGemCreditCount ?? 0) > 0
+        && (userDataService.user.freeGemCreditCount ?? 0) == userDataService.user.gemCount
         && ordersLoader.ordersPublisher.value.count == 0
     }
     
     public func isFirstOrderForFreeOutOfFreeGemCount() -> Bool {
         return isFirstOrderForFreeAvailabel()
-        && (user.freeGemCreditCount ?? 0) < retouchCost
+        && (userDataService.user.freeGemCreditCount ?? 0) < retouchCost
     }
 }
 

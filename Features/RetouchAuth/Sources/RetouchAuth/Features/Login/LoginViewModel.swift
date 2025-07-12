@@ -1,5 +1,6 @@
 import Combine
 import RetouchDomain
+import RetouchUtils
 import RetouchDesignSystem
 import RetouchNetworking
 import FactoryKit
@@ -26,6 +27,7 @@ public class LoginViewModel: ObservableObject {
     // Boundaries
     @Injected(\.analytics) var analytics
     @Injected(\.notificationBanner) var notificationBanner
+    @Injected(\.userDataService) var userDataService
     
     private let restApiManager: RestApiManager
     
@@ -99,7 +101,7 @@ extension LoginViewModel {
         do {
             let userData: UserData = try await restApiManager.call(method: method)
             ActivityIndicatorHelper.shared.hide()
-            UserData.save(userData: userData)
+            userDataService.save(userData: userData)
             didLoginSuccessfully()
         } catch {
             notificationBanner.showBanner(error)

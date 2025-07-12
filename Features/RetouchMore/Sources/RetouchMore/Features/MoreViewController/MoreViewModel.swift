@@ -10,6 +10,7 @@ import RetouchDomain
 import RetouchUtils
 import RetouchNetworking
 import RetouchDesignSystem
+import FactoryKit
 
 @MainActor
 public protocol MoreViewModelProtocol {
@@ -29,6 +30,8 @@ public protocol MoreViewModelProtocol {
 @MainActor
 public final class MoreViewModel: MoreViewModelProtocol, Sendable {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     private let restApiManager: RestApiManager
     private let dataLoader: DataLoaderProtocol
 
@@ -40,16 +43,16 @@ public final class MoreViewModel: MoreViewModelProtocol, Sendable {
 
     // MARK: - Public methods
     public var isUserLoginedWithSecondaryLogin: Bool {
-        UserData.shared.loginStatus == .secondaryLogin
+        userDataService.loginStatus == .secondaryLogin
     }
     
     public var isRemoveAccountAvailable: Bool {
-        UserData.shared.loginStatus == .primaryLogin
-        || UserData.shared.loginStatus == .secondaryLogin
+        userDataService.loginStatus == .primaryLogin
+        || userDataService.loginStatus == .secondaryLogin
     }
     
     public var signInOutTitle: String? {
-        switch UserData.shared.loginStatus {
+        switch userDataService.loginStatus {
         case .autoLogin, .noLogin: return "Sign in"
         case .primaryLogin: return "Sign in to other account"
         case .secondaryLogin: return "Sign out"
@@ -57,19 +60,19 @@ public final class MoreViewModel: MoreViewModelProtocol, Sendable {
     }
     
     public var signInDescriptionTitle: String? {
-        UserData.shared.loginStatus == .autoLogin || UserData.shared.loginStatus == .noLogin
+        userDataService.loginStatus == .autoLogin || userDataService.loginStatus == .noLogin
             ? "Signing up helps you to save your credits and ready photos\nin case of loosing or changing mobile" : nil
     }
     
     public var userIdTitle: String {
-        "UserId: " + UserData.shared.user.id
+        "UserId: " + userDataService.user.id
     }
     
     public func signOut() async {
         let method = AuthRestApiMethods.signout
         let _: String? = try? await restApiManager.call(method: method)
         
-        UserData.shared.remove()
+        userDataService.remove()
         try? await dataLoader.loadData()
     }
     

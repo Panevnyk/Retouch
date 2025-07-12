@@ -24,6 +24,7 @@ public protocol BalanceFromOrderCoordinatorDelegate: AnyObject {
 public final class BalanceViewController: UIViewController {
     // MARK: - Properties
     @Injected(\.analytics) private var analytics
+    @Injected(\.userDataService) private var userDataService
     
     // UI
     @IBOutlet private var headerView: HeaderView!
@@ -100,10 +101,11 @@ private extension BalanceViewController {
     }
 
     func bindData() {
-        UserData.shared.user.$gemCount
-            .sink { (value) in
-                self.yourBalanceView.setAmount(String(value))
-            }.store(in: &cancellable)
+        userDataService.userDataPublisher
+            .sink {
+                self.yourBalanceView.setAmount(String($0.user.gemCount))
+            }
+            .store(in: &cancellable)
     }
 }
 

@@ -1,10 +1,3 @@
-//
-//  EarnCreditsService.swift
-//  RetouchDesignSystem
-//
-//  Created by Panevnyk Vlad on 11.07.2022.
-//
-
 import UIKit
 import RetouchDomain
 import RetouchUtils
@@ -56,6 +49,7 @@ public protocol EarnCreditsServiceProtocol: Sendable {
 public class EarnCreditsService: EarnCreditsServiceProtocol {
     // MARK: - Properties
     @Injected(\.notificationBanner) private var notificationBanner
+    @Injected(\.userDataService) private var userDataService
     
     private let storeKitService: StoreKitServiceProtocol
     private let reviewByURLService: ReviewByURLServiceProtocol
@@ -118,7 +112,7 @@ private extension EarnCreditsService {
             let _: String = try await restApiManager.call(method: method)
             await MainActor.run {
                 ActivityIndicatorHelper.shared.hide()
-                UserData.shared.user.gemCount = UserData.shared.user.gemCount + refillAmount
+                userDataService.update(gemCount: userDataService.user.gemCount + refillAmount)
                 AlertHelper.show(title: "You successfully earned \(refillAmount) gems", message: nil)
             }
         } catch {

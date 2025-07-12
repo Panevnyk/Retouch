@@ -11,7 +11,7 @@ extension RestApiMethod {
     var defaultHeaders: [String: String] {
         let parameters: [String: String] = [
             // FIXME: - Token issue
-            RestApiConstants.token: "" // UserData.shared.token
+            RestApiConstants.token: "" // userDataService.userData.token
         ]
         return parameters
     }
@@ -20,7 +20,7 @@ extension RestApiMethod {
         let parameters: [String: String] = [
             "Content-Type": "multipart/form-data; boundary=ABC_boundary",
             // FIXME: - Token issue
-            RestApiConstants.token: "" // UserData.shared.token
+            RestApiConstants.token: "" // userDataService.userData.token
         ]
         return parameters
     }

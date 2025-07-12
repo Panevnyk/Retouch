@@ -1,11 +1,6 @@
-//
-//  FreeGemCreditCountService.swift
-//  RetouchDesignSystem
-//
-//  Created by Panevnyk Vlad on 13.02.2022.
-//
-
 import RetouchDomain
+import RetouchUtils
+import FactoryKit
 
 public protocol FreeGemCreditCountServiceProtocol {
     var firstOrderFreeGemsCount: Int { get }
@@ -14,12 +9,14 @@ public protocol FreeGemCreditCountServiceProtocol {
 
 public class FreeGemCreditCountService: FreeGemCreditCountServiceProtocol {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     // Static
     private static let didShowFreeGemsCountAlertKey = "FreeGemCreditCountServiceDidShowFreeGemsCountAlertKey"
     
     // Data
     public var firstOrderFreeGemsCount: Int {
-        return UserData.shared.user.freeGemCreditCount ?? 0
+        return userDataService.user.freeGemCreditCount ?? 0
     }
     public var needToShowFreeGemsCountAlert: Bool {
         get {

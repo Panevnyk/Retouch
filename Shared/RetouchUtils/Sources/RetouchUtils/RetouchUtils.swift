@@ -12,4 +12,8 @@ public extension Container {
     var imageLoader: Factory<RetouchImageLoader> {
         self { fatalError("Unregistered RetouchImageLoader dependency") }
     }
+    
+    var userDataService: Factory<UserDataService> {
+        self { fatalError("Unregistered UserDataService dependency") }
+    }
 }

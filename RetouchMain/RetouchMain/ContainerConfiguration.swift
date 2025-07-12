@@ -24,5 +24,9 @@ extension Container {
         Container.shared.imageLoader.register {
             RetouchImageLoaderImp()
         }
+        
+        Container.shared.userDataService.register {
+            UserDataServiceImpl()
+        }
     }
 }

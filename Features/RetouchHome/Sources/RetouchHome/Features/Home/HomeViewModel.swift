@@ -25,6 +25,7 @@ enum HomeViewState {
 public final class HomeViewModel: ObservableObject {
     // MARK: - Protocol
     @Injected(\.analytics) private var analytics
+    @Injected(\.userDataService) private var userDataService
     
     // Boundaries
     private let dataLoader: DataLoaderProtocol
@@ -109,7 +110,7 @@ public final class HomeViewModel: ObservableObject {
     }
     
     func needToShowFreeGemCreditCountAlert() -> Bool {
-        return (UserData.shared.user.freeGemCreditCount ?? 0) > 0
+        return (userDataService.user.freeGemCreditCount ?? 0) > 0
         && ordersLoader.ordersPublisher.value.count == 0
         && freeGemCreditCountService.needToShowFreeGemsCountAlert
     }
@@ -157,7 +158,7 @@ private extension HomeViewModel {
         guard isInitialDataLoaded else { return }
         
         if needToShowFreeGemCreditCountAlert() {
-            let diamondsCount = String(UserData.shared.user.freeGemCreditCount ?? 0)
+            let diamondsCount = String(userDataService.user.freeGemCreditCount ?? 0)
             self.presentFirstRetouchingForFreeAlert(diamondsCount: diamondsCount) { [weak self] in
                 guard let self = self else { return }
                 self.freeGemCreditCountService.needToShowFreeGemsCountAlert = false

@@ -10,6 +10,7 @@ import Combine
 import RetouchDomain
 import RetouchUtils
 import RetouchDesignSystem
+import FactoryKit
 
 public enum GetCreditsType {
     case buy
@@ -63,6 +64,8 @@ public protocol BalanceViewModelProtocol {
 @MainActor
 public final class BalanceViewModel: BalanceViewModelProtocol {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     // Boundaries
     private var iapService: IAPServiceProtocol
     private let earnCreditsService: EarnCreditsServiceProtocol
@@ -208,12 +211,12 @@ extension BalanceViewModel {
     }
 
     public func getBalance() -> String {
-        return String(UserData.shared.user.gemCount)
+        return String(userDataService.user.gemCount)
     }
 
     public func isEnoughCreditsForOrder() -> Bool {
         guard let orderAmount = orderAmount else { return false }
-        return UserData.shared.user.gemCount >= orderAmount
+        return userDataService.user.gemCount >= orderAmount
     }
 }
 

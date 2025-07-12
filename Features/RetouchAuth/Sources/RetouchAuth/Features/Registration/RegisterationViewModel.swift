@@ -1,5 +1,6 @@
 import Combine
 import RetouchDomain
+import RetouchUtils
 import RetouchDesignSystem
 import RetouchNetworking
 import FactoryKit
@@ -15,6 +16,7 @@ public class RegisterationViewModel: ObservableObject {
     // Boundaries
     @Injected(\.analytics) var analytics
     @Injected(\.notificationBanner) var notificationBanner
+    @Injected(\.userDataService) var userDataService
     
     private let restApiManager: RestApiManager
     
@@ -83,7 +85,7 @@ extension RegisterationViewModel {
         do {
             let userData: UserData = try await restApiManager.call(method: method)
             ActivityIndicatorHelper.shared.hide()
-            UserData.save(userData: userData)
+            userDataService.save(userData: userData)
             didRegisterSuccessfully()
         } catch {
             notificationBanner.showBanner(error)

@@ -12,10 +12,13 @@ import RetouchAuth
 import RetouchMore
 import RetouchUtils
 import RetouchDesignSystem
+import FactoryKit
 
 @MainActor
 final class AppCoordinator {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     private let window: UIWindow
     private let serviceFactory: ServiceFactoryProtocol
     private let navigationController: UINavigationController
@@ -134,8 +137,8 @@ final class AppCoordinator {
     }
 
     @objc func tokenExpired() {
-        let loginStatus = UserData.shared.loginStatus
-        UserData.shared.remove()
+        let loginStatus = userDataService.loginStatus
+        userDataService.remove()
         
         switch loginStatus {
         case .autoLogin, .noLogin:
@@ -187,6 +190,6 @@ private extension AppCoordinator {
     func logInSettings() {}
 
     func logOutSettings() {
-        UserData.shared.remove()
+        userDataService.remove()
     }
 }

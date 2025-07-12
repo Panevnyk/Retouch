@@ -1,10 +1,3 @@
-//
-//  IAPService.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 22.04.2021.
-//
-
 import StoreKit
 import RetouchNetworking
 import RetouchDomain
@@ -19,6 +12,7 @@ public protocol IAPServiceProtocol {
 @preconcurrency public final class IAPService: NSObject, IAPServiceProtocol {
     // MARK: - Properties
     @Injected(\.notificationBanner) private var notificationBanner
+    @Injected(\.userDataService) private var userDataService
 
     private let restApiManager: RestApiManager
     private var products: [SKProduct] = []
@@ -115,7 +109,7 @@ extension IAPService: SKPaymentTransactionObserver {
             let _: String = try await restApiManager.call(method: method)
             await MainActor.run {
                 ActivityIndicatorHelper.shared.hide()
-                UserData.shared.user.gemCount = UserData.shared.user.gemCount + refillAmount
+                userDataService.update(gemCount: userDataService.user.gemCount + refillAmount)
             }
         } catch {
             await MainActor.run {

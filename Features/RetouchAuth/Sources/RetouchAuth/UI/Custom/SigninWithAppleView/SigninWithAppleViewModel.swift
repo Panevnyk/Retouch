@@ -1,7 +1,7 @@
-import UIKit
-import RetouchNetworking
 import RetouchDomain
+import RetouchUtils
 import RetouchDesignSystem
+import RetouchNetworking
 import FactoryKit
 
 @MainActor
@@ -15,6 +15,7 @@ public final class SigninWithAppleViewModel: SigninWithAppleViewModelProtocol {
     // Boundaries
     @Injected(\.analytics) var analytics
     @Injected(\.notificationBanner) var notificationBanner
+    @Injected(\.userDataService) private var userDataService
     
     private let restApiManager: RestApiManager
     
@@ -43,7 +44,7 @@ public final class SigninWithAppleViewModel: SigninWithAppleViewModelProtocol {
 
         do {
             let userData: UserData = try await restApiManager.call(method: method)
-            UserData.save(userData: userData)
+            userDataService.save(userData: userData)
             delegate?.didLoginSuccessfully()
             return true
         } catch {

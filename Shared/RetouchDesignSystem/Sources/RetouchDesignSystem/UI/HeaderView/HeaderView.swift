@@ -8,6 +8,8 @@
 import UIKit
 import Combine
 import RetouchDomain
+import RetouchUtils
+import FactoryKit
 
 @MainActor
 public protocol HeaderViewDelegate: AnyObject {
@@ -22,6 +24,8 @@ public protocol HeaderViewExpandableDelegate: AnyObject {
 @objc(HeaderView)
 final public class HeaderView: BaseCustomView {
     // MARK: - Properties
+    @Injected(\.userDataService) private var userDataService
+    
     // UI
     @IBOutlet private var xibView: UIView!
     @IBOutlet private var containerView: UIView!
@@ -108,10 +112,11 @@ extension HeaderView {
 // MARK: - UI
 private extension HeaderView {
     func bindData() {
-        UserData.shared.user.$gemCount
-            .sink { (value) in
-                self.balanceView.setBalance(value)
-            }.store(in: &cancellable)
+        userDataService.userDataPublisher
+            .sink {
+                self.balanceView.setBalance($0.user.gemCount)
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -123,7 +128,7 @@ private extension HeaderView {
         layer.zPosition = 100
 
         balanceView.balanceDelegate = self
-        balanceView.setBalance(UserData.shared.user.gemCount)
+        balanceView.setBalance(userDataService.user.gemCount)
 
         backgroundColor = .clear
         xibView.backgroundColor = .clear
