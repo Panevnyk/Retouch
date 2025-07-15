@@ -1,10 +1,3 @@
-//
-//  Order.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 14.02.2021.
-//
-
 public final class Order: Decodable, @unchecked Sendable {
     public var id: String
     public var userId: String
@@ -32,15 +25,6 @@ public final class Order: Decodable, @unchecked Sendable {
     public var statusDescription: String?
 
     public var isCompleted: Bool { status == .completed }
-    
-    // CodingKeys
-    enum CodingKeys: String, CodingKey {
-        case id, userId, adminId,
-             client, designer,
-             beforeImage, afterImage, selectedRetouchGroups, price,
-             creationDate, finishDate, calculatedWaitingTime,
-             rating, isPayed, isPayedForUrgent, isRedo, redoDescription, isNewOrder, status, statusDescription
-    }
 
     // MARK: - Init
     public init(id: String,
@@ -92,35 +76,6 @@ public final class Order: Decodable, @unchecked Sendable {
         self.isNewOrder = isNewOrder
         self.status = status
         self.statusDescription = statusDescription
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        id = try container.decode(String.self, forKey: .id)
-        userId = try container.decode(String.self, forKey: .userId)
-        adminId = try? container.decode(String?.self, forKey: .adminId)
-
-        client = try container.decode(String.self, forKey: .client)
-        designer = try? container.decode(String?.self, forKey: .designer)
-
-        beforeImage = try? container.decode(String?.self, forKey: .beforeImage)
-        afterImage = try? container.decode(String?.self, forKey: .afterImage)
-        selectedRetouchGroups = try container.decode([SelectedRetouchGroup].self, forKey: .selectedRetouchGroups)
-        price = try container.decode(Int.self, forKey: .price)
-
-        creationDate = try container.decode(Double.self, forKey: .creationDate)
-        finishDate = try container.decode(Double.self, forKey: .finishDate)
-        calculatedWaitingTime = (try? container.decode(Double.self, forKey: .calculatedWaitingTime)) ?? 0
-
-        rating = try? container.decode(Int?.self, forKey: .rating)
-        isPayed = try container.decode(Bool.self, forKey: .isPayed)
-        isPayedForUrgent = (try? container.decode(Bool.self, forKey: .isPayedForUrgent)) ?? false
-        isRedo = try container.decode(Bool.self, forKey: .isRedo)
-        redoDescription = try? container.decode(String?.self, forKey: .redoDescription)
-        isNewOrder = try container.decode(Bool.self, forKey: .isNewOrder)
-        status = (try? container.decode(OrderStatus.self, forKey: .status)) ?? .waiting
-        statusDescription = try? container.decode(String?.self, forKey: .statusDescription)
     }
 }
 

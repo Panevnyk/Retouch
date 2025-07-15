@@ -1,5 +1,3 @@
-import Foundation
-
 public struct User: Decodable, Sendable {
     public let id: String
     public let deviceId: String?

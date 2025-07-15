@@ -1,5 +1,3 @@
-import Foundation
-
 public struct UserData: Decodable, Sendable {
     public let token: String
     public let user: User

@@ -1,13 +1,3 @@
-//
-//  PresentableRetouchGroup.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 27.02.2021.
-//
-
-import UIKit
-import Combine
-
 public final class PresentableRetouchGroup: @unchecked Sendable {
     public let id: String
     public let title: String

@@ -1,15 +1,24 @@
-//
-//  RetouchGroup.swift
-//  RetouchDesignSystem
-//
-//  Created by Vladyslav Panevnyk on 11.02.2021.
-//
-
 public final class RetouchGroup: Decodable, @unchecked Sendable {
-    public var id: String = ""
-    public var title: String = ""
-    public var image: String = ""
-    public var price: Int = 0
-    public var orderNumber: Int = 0
+    public let id: String
+    public let title: String
+    public let image: String
+    public let price: Int
+    public let orderNumber: Int
     public var tags: [RetouchTag] = []
+    
+    public init(
+        id: String,
+        title: String,
+        image: String,
+        price: Int,
+        orderNumber: Int,
+        tags: [RetouchTag]
+    ) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.price = price
+        self.orderNumber = orderNumber
+        self.tags = tags
+    }
 }
