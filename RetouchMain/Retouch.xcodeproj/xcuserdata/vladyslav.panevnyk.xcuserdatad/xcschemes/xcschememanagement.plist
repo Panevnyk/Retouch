@@ -17,12 +17,10 @@
 		<key>Promises (Playground).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>12</integer>
 		</dict>
 		<key>RetouchMain.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -39,7 +37,25 @@
 		<key>SnapKitPlayground (Playground).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>13</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>91C00C7525D2C72800FF97A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91C00C8B25D2C72A00FF97A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91C00C9625D2C72A00FF97A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
