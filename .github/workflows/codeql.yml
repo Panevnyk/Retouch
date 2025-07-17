@@ -36,6 +36,7 @@ jobs:
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=17.6' \
             build
+     working-directory: RetouchMain
 
       - name: Run CodeQL analysis
         uses: github/codeql-action/analyze@v3
