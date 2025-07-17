@@ -17,7 +17,6 @@
 		91C00C7A25D2C72800FF97A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C00C7925D2C72800FF97A2 /* AppDelegate.swift */; };
 		91C00C7C25D2C72800FF97A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C00C7B25D2C72800FF97A2 /* SceneDelegate.swift */; };
 		91C00C8625D2C72A00FF97A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C00C8425D2C72A00FF97A2 /* LaunchScreen.storyboard */; };
-		91C00C9125D2C72A00FF97A2 /* RetouchMainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C00C9025D2C72A00FF97A2 /* RetouchMainTests.swift */; };
 		91C00C9C25D2C72A00FF97A2 /* RetouchMainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C00C9B25D2C72A00FF97A2 /* RetouchMainUITests.swift */; };
 		91EE31DC261F09610069327F /* ForceAppUpdateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EE31DB261F09610069327F /* ForceAppUpdateCoordinator.swift */; };
 		91F47BE625D2D5EC003DF40A /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F47BE525D2D5EC003DF40A /* HomeAssembly.swift */; };
@@ -44,6 +43,8 @@
 		F4C18E3A2DEF06240053841C /* RetouchHome in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E392DEF06240053841C /* RetouchHome */; };
 		F4C18E3C2DEF06240053841C /* RetouchMore in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E3B2DEF06240053841C /* RetouchMore */; };
 		F4C18E3E2DEF06240053841C /* RetouchUtils in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E3D2DEF06240053841C /* RetouchUtils */; };
+		F4F3AA4F2E290BAA00842B67 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4F3AA4B2E290BAA00842B67 /* Info.plist */; };
+		F4F3AA502E290C1200842B67 /* RetouchMainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3AA4C2E290BAA00842B67 /* RetouchMainTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		F4B7829A2DF0914100D4E5CD /* RetouchNetworking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNetworking; sourceTree = "<group>"; };
 		F4C18E302DEF03E60053841C /* RetouchAuth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchAuth; path = ../Features/RetouchAuth; sourceTree = SOURCE_ROOT; };
 		F4D652F02E0C196C001E54C9 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
+		F4F3AA4B2E290BAA00842B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F3AA4C2E290BAA00842B67 /* RetouchMainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetouchMainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,7 @@
 				F43AACA42E169AF600CADDE9 /* Features */,
 				F4A942C22DF055ED00E6F516 /* 3-rd party adapters */,
 				91C00C7825D2C72800FF97A2 /* RetouchMain */,
+				F4F3AA4D2E290BAA00842B67 /* RetouchMainTests */,
 				91C00C9A25D2C72A00FF97A2 /* RetouchMainUITests */,
 				91C00C7725D2C72800FF97A2 /* Products */,
 				46BDFEDF8308E69E540133F3 /* Frameworks */,
@@ -306,6 +310,15 @@
 			path = ci_scripts;
 			sourceTree = "<group>";
 		};
+		F4F3AA4D2E290BAA00842B67 /* RetouchMainTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4F3AA4B2E290BAA00842B67 /* Info.plist */,
+				F4F3AA4C2E290BAA00842B67 /* RetouchMainTests.swift */,
+			);
+			path = RetouchMainTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -426,6 +439,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F3AA4F2E290BAA00842B67 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C00C9125D2C72A00FF97A2 /* RetouchMainTests.swift in Sources */,
+				F4F3AA502E290C1200842B67 /* RetouchMainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,18 +707,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G6KD9UARPF;
 				INFOPLIST_FILE = RetouchMainTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vp.RetouchMainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetouchMain.app/RetouchMain";
@@ -715,18 +730,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G6KD9UARPF;
 				INFOPLIST_FILE = RetouchMainTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vp.RetouchMainTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetouchMain.app/RetouchMain";
@@ -740,12 +756,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RetouchMainUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vp.RetouchMainUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -762,12 +779,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RetouchMainUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vp.RetouchMainUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
