@@ -172,6 +172,7 @@
 				91C00C9A25D2C72A00FF97A2 /* RetouchMainUITests */,
 				91C00C7725D2C72800FF97A2 /* Products */,
 				46BDFEDF8308E69E540133F3 /* Frameworks */,
+				F4F3AA4A2E28F29000842B67 /* ci_scripts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +298,13 @@
 			name = "3-rd party adapters";
 			path = "../3-rd party adapters";
 			sourceTree = SOURCE_ROOT;
+		};
+		F4F3AA4A2E28F29000842B67 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -632,6 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G6KD9UARPF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RetouchMain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
@@ -661,6 +670,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = G6KD9UARPF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RetouchMain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
