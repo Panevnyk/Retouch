@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "F30B237B-F097-4F9E-B213-289CFCFF5F00",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "selectedTags" : {
+        "includeXCTests" : true
+      },
+      "target" : {
+        "containerPath" : "container:Retouch.xcodeproj",
+        "identifier" : "91C00C8B25D2C72A00FF97A2",
+        "name" : "RetouchMainTests"
+      }
+    },
+    {
+      "selectedTags" : {
+        "includeXCTests" : true
+      },
+      "target" : {
+        "containerPath" : "container:..\/Core\/RetouchDomain",
+        "identifier" : "RetouchDomainTests",
+        "name" : "RetouchDomainTests"
+      }
+    }
+  ],
+  "version" : 1
+}

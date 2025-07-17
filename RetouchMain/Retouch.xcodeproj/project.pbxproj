@@ -109,6 +109,7 @@
 		F4D652F02E0C196C001E54C9 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		F4F3AA4B2E290BAA00842B67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4F3AA4C2E290BAA00842B67 /* RetouchMainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetouchMainTests.swift; sourceTree = "<group>"; };
+		F4F3AA512E290E4C00842B67 /* RetouchMain.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RetouchMain.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +178,7 @@
 				91C00C7725D2C72800FF97A2 /* Products */,
 				46BDFEDF8308E69E540133F3 /* Frameworks */,
 				F4F3AA4A2E28F29000842B67 /* ci_scripts */,
+				F4F3AA512E290E4C00842B67 /* RetouchMain.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
