@@ -43,7 +43,6 @@
 		F4C18E3A2DEF06240053841C /* RetouchHome in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E392DEF06240053841C /* RetouchHome */; };
 		F4C18E3C2DEF06240053841C /* RetouchMore in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E3B2DEF06240053841C /* RetouchMore */; };
 		F4C18E3E2DEF06240053841C /* RetouchUtils in Frameworks */ = {isa = PBXBuildFile; productRef = F4C18E3D2DEF06240053841C /* RetouchUtils */; };
-		F4F3AA4F2E290BAA00842B67 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4F3AA4B2E290BAA00842B67 /* Info.plist */; };
 		F4F3AA502E290C1200842B67 /* RetouchMainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3AA4C2E290BAA00842B67 /* RetouchMainTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -441,7 +440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F3AA4F2E290BAA00842B67 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
