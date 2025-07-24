@@ -21,16 +21,6 @@
         "identifier" : "91C00C8B25D2C72A00FF97A2",
         "name" : "RetouchMainTests"
       }
-    },
-    {
-      "selectedTags" : {
-        "includeXCTests" : true
-      },
-      "target" : {
-        "containerPath" : "container:..\/Core\/RetouchDomain",
-        "identifier" : "RetouchDomainTests",
-        "name" : "RetouchDomainTests"
-      }
     }
   ],
   "version" : 1
