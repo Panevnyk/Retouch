@@ -1,10 +1,3 @@
-//
-//  KeychainBacked.swift
-//  RetouchDesignSystem
-//
-//  Created by Panevnyk Vlad on 11.07.2022.
-//
-
 @MainActor
 @propertyWrapper public struct KeychainBacked<Value> {
     public var wrappedValue: Value {
