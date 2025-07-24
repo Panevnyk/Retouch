@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "4A04FA11-A0EC-4D82-9849-3B87B22F9F68",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTags" : {
+        "includeXCTests" : true
+      },
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "RetouchDomainTests",
+        "name" : "RetouchDomainTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -100,6 +100,7 @@
 		F43B743B2A6AB02800E05184 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		F45A1AFB2DF05E1D0061EEC0 /* RetouchAnalytics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchAnalytics; sourceTree = "<group>"; };
 		F46FE7B52DEF017000C0C9DA /* RetouchHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchHome; path = ../Features/RetouchHome; sourceTree = SOURCE_ROOT; };
+		F47502952E32829300D92191 /* RetouchDomain.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RetouchDomain.xctestplan; sourceTree = "<group>"; };
 		F4A942C02DF055ED00E6F516 /* RetouchImageLoader */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchImageLoader; sourceTree = "<group>"; };
 		F4A942C12DF055ED00E6F516 /* RetouchNotificationBanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNotificationBanner; sourceTree = "<group>"; };
 		F4B7821D2DF07B2C00D4E5CD /* ContainerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerConfiguration.swift; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 				46BDFEDF8308E69E540133F3 /* Frameworks */,
 				F4F3AA4A2E28F29000842B67 /* ci_scripts */,
 				F4F3AA512E290E4C00842B67 /* RetouchMain.xctestplan */,
+				F47502952E32829300D92191 /* RetouchDomain.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
