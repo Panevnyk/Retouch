@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:RetouchMain.xctestplan"
+            reference = "container:TestPlans/RetouchMain.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

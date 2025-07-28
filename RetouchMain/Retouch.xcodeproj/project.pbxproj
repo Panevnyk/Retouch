@@ -177,7 +177,7 @@
 				91C00C7725D2C72800FF97A2 /* Products */,
 				46BDFEDF8308E69E540133F3 /* Frameworks */,
 				F4F3AA4A2E28F29000842B67 /* ci_scripts */,
-				F4F3AA512E290E4C00842B67 /* RetouchMain.xctestplan */,
+				F47502962E337DB300D92191 /* TestPlans */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,6 +291,14 @@
 				F43B743B2A6AB02800E05184 /* ServiceFactory.swift */,
 			);
 			path = ServiceFactory;
+			sourceTree = "<group>";
+		};
+		F47502962E337DB300D92191 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				F4F3AA512E290E4C00842B67 /* RetouchMain.xctestplan */,
+			);
+			path = TestPlans;
 			sourceTree = "<group>";
 		};
 		F4A942C22DF055ED00E6F516 /* 3-rd party adapters */ = {
