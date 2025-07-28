@@ -78,8 +78,6 @@
 		91C00C8525D2C72A00FF97A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91C00C8725D2C72A00FF97A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C00C8C25D2C72A00FF97A2 /* RetouchMainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetouchMainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91C00C9025D2C72A00FF97A2 /* RetouchMainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetouchMainTests.swift; sourceTree = "<group>"; };
-		91C00C9225D2C72A00FF97A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91C00C9725D2C72A00FF97A2 /* RetouchMainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetouchMainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C00C9B25D2C72A00FF97A2 /* RetouchMainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetouchMainUITests.swift; sourceTree = "<group>"; };
 		91C00C9D25D2C72A00FF97A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +100,8 @@
 		F46FE7B52DEF017000C0C9DA /* RetouchHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchHome; path = ../Features/RetouchHome; sourceTree = SOURCE_ROOT; };
 		F4A942C02DF055ED00E6F516 /* RetouchImageLoader */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchImageLoader; sourceTree = "<group>"; };
 		F4A942C12DF055ED00E6F516 /* RetouchNotificationBanner */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNotificationBanner; sourceTree = "<group>"; };
+		F4B044912E37BF27008057A0 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
+		F4B044922E37C6D5008057A0 /* tag_release.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = tag_release.sh; sourceTree = "<group>"; };
 		F4B7821D2DF07B2C00D4E5CD /* ContainerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerConfiguration.swift; sourceTree = "<group>"; };
 		F4B7829A2DF0914100D4E5CD /* RetouchNetworking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RetouchNetworking; sourceTree = "<group>"; };
 		F4C18E302DEF03E60053841C /* RetouchAuth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RetouchAuth; path = ../Features/RetouchAuth; sourceTree = SOURCE_ROOT; };
@@ -205,18 +205,8 @@
 				91C00C8725D2C72A00FF97A2 /* Info.plist */,
 				D196024527F0934100DBA675 /* GoogleService-Info.plist */,
 				D1A0856E2814410F0086B60A /* Assets.xcassets */,
-				91C00C8F25D2C72A00FF97A2 /* RetouchMainTests */,
 			);
 			path = RetouchMain;
-			sourceTree = "<group>";
-		};
-		91C00C8F25D2C72A00FF97A2 /* RetouchMainTests */ = {
-			isa = PBXGroup;
-			children = (
-				91C00C9025D2C72A00FF97A2 /* RetouchMainTests.swift */,
-				91C00C9225D2C72A00FF97A2 /* Info.plist */,
-			);
-			path = RetouchMainTests;
 			sourceTree = "<group>";
 		};
 		91C00C9A25D2C72A00FF97A2 /* RetouchMainUITests */ = {
@@ -315,6 +305,8 @@
 		F4F3AA4A2E28F29000842B67 /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
+				F4B044912E37BF27008057A0 /* ci_post_xcodebuild.sh */,
+				F4B044922E37C6D5008057A0 /* tag_release.sh */,
 			);
 			path = ci_scripts;
 			sourceTree = "<group>";
@@ -660,7 +652,7 @@
 				CODE_SIGN_ENTITLEMENTS = RetouchMain/RetouchMain.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G6KD9UARPF;
 				ENABLE_BITCODE = NO;
@@ -672,7 +664,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -691,7 +683,7 @@
 				CODE_SIGN_ENTITLEMENTS = RetouchMain/RetouchMain.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G6KD9UARPF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RetouchMain/Info.plist;
@@ -702,7 +694,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vp.Retouch2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
