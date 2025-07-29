@@ -4,8 +4,8 @@ set -e
 
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
-VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Info.plist")
-BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Info.plist")
+VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$CI_WORKSPACE/RetouchMain/Info.plist")
+BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$CI_WORKSPACE/RetouchMain/Info.plist")
 
 TAG="v$VERSION"
 
