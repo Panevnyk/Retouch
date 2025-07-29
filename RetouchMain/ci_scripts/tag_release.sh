@@ -4,13 +4,13 @@ set -e
 
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
-echo "📁 Listing: $CI_WORKSPACE"
-ls -la "$CI_WORKSPACE"
-echo "📁 Listing: $CI_WORKSPACE/RetouchMain"
-ls -la "$CI_WORKSPACE/RetouchMain"
+echo "📁 Listing: $CI_PRIMARY_REPOSITORY_PATH"
+ls -la "$CI_PRIMARY_REPOSITORY_PATH"
+echo "📁 Listing: $CI_PRIMARY_REPOSITORY_PATH/RetouchMain"
+ls -la "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain"
 
-VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$CI_WORKSPACE/RetouchMain/RetouchMain/Info.plist")
-BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$CI_WORKSPACE/RetouchMain/RetouchMain/Info.plist")
+VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/RetouchMain/Info.plist")
+BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/RetouchMain/Info.plist")
 
 TAG="v$VERSION"
 
