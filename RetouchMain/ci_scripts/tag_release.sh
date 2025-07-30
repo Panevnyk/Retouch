@@ -4,21 +4,16 @@ set -e
 
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
-BUILD=${CI_BUILD_NUMBER}
-VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain/Retouch.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
-TAG="release/$VERSION-$BUILD"
-
-VERSION1=$(xcodebuild -showBuildSettings \
+#BUILD=${CI_BUILD_NUMBER}
+VERSION=$(xcodebuild -showBuildSettings \
   -project "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj" \
   -scheme "RetouchMain" \
   | awk -F " = " '/MARKETING_VERSION/ { print $2 }')
-  
-PBXPROJ="$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj/project.pbxproj"
-VERSION2=$(grep -m1 MARKETING_VERSION "$PBXPROJ" | awk '{print $3}' | tr -d ';')
-  
-echo "VERSION: $VERSION"
-echo "VERSION1: $VERSION1"
-echo "VERSION2: $VERSION2"
+BUILD=$(xcodebuild -showBuildSettings \
+  -project "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj" \
+  -scheme "RetouchMain" \
+  | awk -F " = " '/CURRENT_PROJECT_VERSION/ { print $2 }')
+TAG="release/$VERSION-$BUILD"
 
 echo "Tag to create: $TAG"
 echo "Build number: $BUILD"
