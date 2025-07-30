@@ -4,14 +4,21 @@ set -e
 
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
-echo "111: ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain.xcodeproj/project.pbxproj"
-echo "222: ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain/RetouchMain.xcodeproj/project.pbxproj"
-
-ls -la "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/RetouchMain.xcodeproj"
-
 BUILD=${CI_BUILD_NUMBER}
-VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain/RetouchMain.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
+VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/Retouch.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
 TAG="release/$VERSION-$BUILD"
+
+VERSION1=$(xcodebuild -showBuildSettings \
+  -project "$CI_PRIMARY_REPOSITORY_PATH/Retouch.xcodeproj" \
+  -scheme "RetouchMain" \
+  | awk -F " = " '/MARKETING_VERSION/ { print $2 }')
+  
+PBXPROJ="$CI_PRIMARY_REPOSITORY_PATH/Retouch.xcodeproj/project.pbxproj"
+VERSION2=$(grep -m1 MARKETING_VERSION "$PBXPROJ" | awk '{print $3}' | tr -d ';')
+  
+echo "VERSION: $VERSION"
+echo "VERSION1: $VERSION1"
+echo "VERSION2: $VERSION2"
 
 echo "Tag to create: $TAG"
 echo "Build number: $BUILD"
