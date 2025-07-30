@@ -5,15 +5,15 @@ set -e
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
 BUILD=${CI_BUILD_NUMBER}
-VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/Retouch.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
+VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain/Retouch.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
 TAG="release/$VERSION-$BUILD"
 
 VERSION1=$(xcodebuild -showBuildSettings \
-  -project "$CI_PRIMARY_REPOSITORY_PATH/Retouch.xcodeproj" \
+  -project "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj" \
   -scheme "RetouchMain" \
   | awk -F " = " '/MARKETING_VERSION/ { print $2 }')
   
-PBXPROJ="$CI_PRIMARY_REPOSITORY_PATH/Retouch.xcodeproj/project.pbxproj"
+PBXPROJ="$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj/project.pbxproj"
 VERSION2=$(grep -m1 MARKETING_VERSION "$PBXPROJ" | awk '{print $3}' | tr -d ';')
   
 echo "VERSION: $VERSION"
