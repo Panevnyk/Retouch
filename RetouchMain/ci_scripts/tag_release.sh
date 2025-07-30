@@ -4,8 +4,11 @@ set -e
 
 echo "Running ci_post_xcodebuild.sh: Auto-tagging"
 
+echo "111: ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain.xcodeproj/project.pbxproj"
+echo "222: ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain/RetouchMain.xcodeproj/project.pbxproj"
+
 BUILD=${CI_BUILD_NUMBER}
-VERSION=$(cat ../${CI_PRODUCT}.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
+VERSION=$(cat ${CI_PRIMARY_REPOSITORY_PATH}/RetouchMain.xcodeproj/project.pbxproj | grep -m1 'MARKETING_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' ')
 TAG="release/$VERSION-$BUILD"
 
 echo "Tag to create: $TAG"
