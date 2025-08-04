@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Running ci_post_xcodebuild.sh: Auto-tagging"
+echo "Running tag_release.sh: Auto-tagging"
 
 BUILD=${CI_BUILD_NUMBER}
 VERSION=$(xcodebuild -showBuildSettings \
