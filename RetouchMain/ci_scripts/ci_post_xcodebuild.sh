@@ -2,11 +2,15 @@
 set -e
 
 echo "Running ci_post_xcodebuild.sh"
-echo "Workflow: $CI_WORKFLOW_NAME"
+echo "Branch: $CI_BRANCH"
 
-if [ "$CI_WORKFLOW_NAME" = "Release: TestFlight" ]; then
-  echo "Running tag_release.sh for workflow '$CI_WORKFLOW_NAME'"
-  sh "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/ci_scripts/tag_release.sh"
+if [[ -n $CI_APP_STORE_SIGNED_APP_PATH ]]; then # checks if there is an AppStore signed archive after running xcodebuild
+    if [[ "$CI_BRANCH" == release/* ]]; then
+        echo "Running tag_release.sh for branch: $CI_BRANCH"
+        sh "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/ci_scripts/tag_release.sh"
+    else
+        echo "Skipping tag. Not a release branch."
+    fi
 else
-  echo "Not a release workflow. Skipping tag."
+    echo "Skipping tag. Not archive step."
 fi

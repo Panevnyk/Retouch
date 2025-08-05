@@ -2,15 +2,16 @@
 
 set -e
 
-echo "Running ci_post_xcodebuild.sh: Auto-tagging"
+echo "Running tag_release.sh: Auto-tagging"
 
-VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Info.plist")
-BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Info.plist")
-
-TAG="v$VERSION"
+BUILD=${CI_BUILD_NUMBER}
+VERSION=$(xcodebuild -showBuildSettings \
+  -project "$CI_PRIMARY_REPOSITORY_PATH/RetouchMain/Retouch.xcodeproj" \
+  -scheme "RetouchMain" \
+  | awk -F " = " '/MARKETING_VERSION/ { print $2 }')
+TAG="release/$VERSION-$BUILD"
 
 echo "Tag to create: $TAG"
-echo "Build number: $BUILD"
 
 git config --global user.email "ci-bot@example.com"
 git config --global user.name "XcodeCloud Bot"
