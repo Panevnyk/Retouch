@@ -212,7 +212,7 @@ public actor OrdersLoader: OrdersLoaderProtocol {
     
     public func didChangeStatus(by model: OrderStatusChangedNotificationModel) async {
         await MainActor.run {
-            let orders = self.ordersPublisher.value
+            var orders = self.ordersPublisher.value
 
             if let index = orders.firstIndex(where: { $0.id == model.orderId }) {
                 orders[index].status = model.orderStatus

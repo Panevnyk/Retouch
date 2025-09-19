@@ -1,8 +1,8 @@
 public final class SelectedRetouchTag: Decodable {
-    public var id: String
-    public var retouchTagId: String
-    public var retouchTagTitle: String
-    public var retouchTagPrice: Int
+    public let id: String
+    public let retouchTagId: String
+    public let retouchTagTitle: String
+    public let retouchTagPrice: Int
     public var retouchTagDescription: String?
 
     public init(id: String,

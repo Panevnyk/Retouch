@@ -1,7 +1,7 @@
 public final class SelectedRetouchGroup: Decodable {
-    public var id: String
-    public var retouchGroupId: String
-    public var retouchGroupTitle: String
+    public let id: String
+    public let retouchGroupId: String
+    public let retouchGroupTitle: String
     public var selectedRetouchTags: [SelectedRetouchTag]
     public var descriptionForDesigner: String
 

@@ -1,26 +1,26 @@
-public final class Order: Decodable, @unchecked Sendable {
-    public var id: String
-    public var userId: String
-    public var adminId: String?
+public struct Order: Decodable, @unchecked Sendable {
+    public let id: String
+    public let userId: String
+    public let adminId: String?
 
-    public var client: String
-    public var designer: String?
+    public let client: String
+    public let designer: String?
 
-    public var beforeImage: String?
+    public let beforeImage: String?
     public var afterImage: String?
-    public var selectedRetouchGroups: [SelectedRetouchGroup]
-    public var price: Int
+    public let selectedRetouchGroups: [SelectedRetouchGroup]
+    public let price: Int
 
-    public var creationDate: Double // milisec
-    public var finishDate: Double // milisec
-    public var calculatedWaitingTime: Double // milisec
+    public let creationDate: Double // millis
+    public let finishDate: Double   // millis
+    public let calculatedWaitingTime: Double // millis
 
     public var rating: Int?
     public var isPayed: Bool
     public var isPayedForUrgent: Bool
     public var isRedo: Bool
     public var redoDescription: String?
-    public var isNewOrder: Bool
+    public let isNewOrder: Bool
     public var status: OrderStatus
     public var statusDescription: String?
 
@@ -80,11 +80,11 @@ public final class Order: Decodable, @unchecked Sendable {
 }
 
 public enum OrderStatus: String, Decodable, Sendable {
-    case waiting = "waiting"
-    case confirmed = "confirmed"
-    case canceled = "canceled"
-    case waitingForReview = "waitingForReview"
-    case inReview = "inReview"
-    case redoByLeadDesigner = "redoByLeadDesigner"
-    case completed = "completed"
+    case waiting
+    case confirmed
+    case canceled
+    case waitingForReview
+    case inReview
+    case redoByLeadDesigner
+    case completed
 }
